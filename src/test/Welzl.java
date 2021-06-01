@@ -3,7 +3,7 @@ package test;
 import java.util.Collections;
 import java.util.List;
 import java.util.Vector;
-
+/*
 public class Welzl  implements  TimeSeriesAnomalyDetector{
     class Circle
     {
@@ -58,9 +58,10 @@ public class Welzl  implements  TimeSeriesAnomalyDetector{
         P2.add(p);
         return welzl_help(P1,P2,n-1);
     }
+
     Circle welzl(const Vector<Point> R){
         Vector<Point> R_copy = R;
-        Collections.swap(R_copy.firstElement(),R_copy.lastElement()););
+       // Collections.swap(R_copy.firstElement(),R_copy.lastElement()););
     }
 
     @Override
@@ -70,3 +71,4 @@ public class Welzl  implements  TimeSeriesAnomalyDetector{
 
 
 }
+*/
