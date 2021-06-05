@@ -2,18 +2,26 @@ package View;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Flight Gear");
-        primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.show();
+    public void start(Stage primaryStage) {
+       try{
+           FXMLLoader Lo=new FXMLLoader();
+           BorderPane root = Lo.load(getClass().getResource("sample.fxml").openStream());
+           primaryStage.setTitle("Flight Gear");
+           primaryStage.setScene(new Scene(root, 800, 600));
+           primaryStage.show();
+       } catch (IOException e) {
+           e.printStackTrace();
+       }
+
     }
 
 

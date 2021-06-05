@@ -6,8 +6,8 @@
 <?import javafx.scene.layout.Pane?>
 
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" >
-<right>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" >
 <Pane prefHeight="390.0" prefWidth="207.0" BorderPane.alignment="CENTER">
     <children>
         <TextField layoutX="33.0" layoutY="253.0" prefHeight="10.0" prefWidth="37.0" />
@@ -24,7 +24,6 @@
         <Label layoutX="165.0" layoutY="236.0" text="Yaw" />
     </children>
 </Pane>
-</right>
-        </BorderPane>
+</AnchorPane>
 
 

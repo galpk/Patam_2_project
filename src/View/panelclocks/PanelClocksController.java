@@ -1,4 +1,4 @@
-package View.PanelClocks;
+package View.panelclocks;
 
 public class PanelClocksController {
 }

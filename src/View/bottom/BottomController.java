@@ -1,4 +1,4 @@
-package View.Bottom;
+package View.bottom;
 
 import javafx.stage.FileChooser;
 import java.io.File;

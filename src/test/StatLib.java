@@ -58,8 +58,8 @@ public class StatLib{
 
 		for(int i = 0; i < x.length; i++)
 		{
-			x[i] = points[i].x;
-			y[i] = points[i].y;
+			x[i] = (float) points[i].x;
+			y[i] = (float) points[i].y;
 
 		}
 		float a = (cov(x, y))/var(x);
@@ -76,12 +76,12 @@ public class StatLib{
 		a = linear_reg(points).a ;
 		b = linear_reg(points).b ;
 		Line g = new Line (a,b) ;
-		return Math.abs(g.f(p.x) - p.y);
+		return (float) Math.abs(g.f((float) p.x) - p.y);
 	}
 
 	// returns the deviation between point p and the line
 	public static float dev(Point p,Line l){
-		return Math.abs(l.f(p.x) - p.y);
+		return (float) Math.abs(l.f((float) p.x) - p.y);
 	}
 
 }

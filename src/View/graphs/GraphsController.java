@@ -1,4 +1,4 @@
-package View.Graphs;
+package View.graphs;
 
 public class GraphsController {
 }

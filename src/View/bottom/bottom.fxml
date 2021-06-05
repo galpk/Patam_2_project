@@ -4,19 +4,18 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.Bottom.BottomController">
-
-    <bottom>
-        <Pane prefHeight="88.0" prefWidth="760.0" BorderPane.alignment="CENTER">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.bottom.BottomController">
+        <Pane layoutY="16.0" prefHeight="88.0" prefWidth="760.0" BorderPane.alignment="CENTER">
             <children>
-                <Slider layoutX="14.0" layoutY="60.0" prefHeight="14.0" prefWidth="623.0" />
-                <Button layoutX="121.0" layoutY="19.0" mnemonicParsing="false" text="Play" />
-                <Button layoutX="171.0" layoutY="20.0" mnemonicParsing="false" text="Pause" />
-                <Button layoutX="229.0" layoutY="21.0" mnemonicParsing="false" text="Stop" />
+                <Slider fx:id="slider" layoutX="14.0" layoutY="60.0" prefHeight="14.0" prefWidth="623.0" />
+                <Button fx:id="Play" layoutX="121.0" layoutY="19.0" mnemonicParsing="false" text="Play" />
+                <Button fx:id="Pause" layoutX="171.0" layoutY="20.0" mnemonicParsing="false" text="Pause" />
+                <Button fx:id="Stop" layoutX="229.0" layoutY="21.0" mnemonicParsing="false" text="Stop" />
                 <Button layoutX="280.0" layoutY="21.0" mnemonicParsing="false" text="&lt;&lt;&lt;" />
                 <Button layoutX="331.0" layoutY="21.0" mnemonicParsing="false" text="&gt;&gt;&gt;" />
                 <Button layoutX="383.0" layoutY="21.0" mnemonicParsing="false" text="-15s" />
@@ -32,8 +31,7 @@
                         <Font size="13.0" />
                     </font>
                 </Label>
-                <Button layoutX="18.0" layoutY="14.0" mnemonicParsing="false" onAction="#OpenCSVFile" prefHeight="32.0" prefWidth="85.0" text="Open CSV" />
+                <Button fx:id="OpenCSV" layoutX="18.0" layoutY="14.0" mnemonicParsing="false" onAction="#OpenCSVFile" prefHeight="32.0" prefWidth="85.0" text="Open CSV" />
             </children>
         </Pane>
-    </bottom>
-</BorderPane>
+</AnchorPane>
