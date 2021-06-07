@@ -8,10 +8,10 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="408.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.graphs.GraphsController">
-<Pane layoutX="-2.0" layoutY="2.0" prefHeight="408.0" prefWidth="808.0" BorderPane.alignment="CENTER">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.graphs.GraphsController">
+<Pane layoutX="-4.0" prefHeight="453.0" prefWidth="808.0" BorderPane.alignment="CENTER">
     <children>
-        <LineChart layoutX="170.0" layoutY="25.0" prefHeight="126.0" prefWidth="173.0">
+        <LineChart fx:id="graphright" layoutX="170.0" layoutY="42.0" prefHeight="126.0" prefWidth="173.0">
             <xAxis>
                 <CategoryAxis side="BOTTOM">
                   <padding>
@@ -25,7 +25,7 @@
                <Insets right="10.0" />
             </padding>
         </LineChart>
-        <LineChart layoutY="25.0" prefHeight="93.0" prefWidth="151.0">
+        <LineChart fx:id="graphleft" layoutY="42.0" prefHeight="93.0" prefWidth="151.0">
             <xAxis>
                 <CategoryAxis side="BOTTOM" />
             </xAxis>
@@ -36,5 +36,13 @@
                <Insets right="10.0" />
             </padding>
         </LineChart>
+         <LineChart fx:id="graphbottom" layoutX="11.0" layoutY="215.0" prefHeight="238.0" prefWidth="319.0">
+           <xAxis>
+             <CategoryAxis side="BOTTOM" />
+           </xAxis>
+           <yAxis>
+             <NumberAxis side="LEFT" />
+           </yAxis>
+         </LineChart>
     </children></Pane>
 </AnchorPane>

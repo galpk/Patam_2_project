@@ -1,10 +1,11 @@
 package View.graphs;
 
 import javafx.fxml.FXML;
-import javafx.scene.canvas.Canvas;
+import javafx.scene.chart.LineChart;
 
 public class GraphsController {
 
-    @FXML Canvas graphleft;
-    @FXML Canvas graphright;
+    @FXML LineChart graphleft;
+    @FXML LineChart graphright;
+    @FXML LineChart graphbottom;
 }

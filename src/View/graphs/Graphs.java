@@ -2,14 +2,15 @@ package View.graphs;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.canvas.Canvas;
+import javafx.scene.chart.LineChart;
 import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 
 public class Graphs extends AnchorPane {
 
-    @FXML public Canvas graphleft;
-    @FXML public Canvas graphright;
+    @FXML public LineChart graphleft;
+    @FXML public LineChart graphright;
+    @FXML public LineChart graphbottom;
     
     public Graphs(){
         super();
@@ -21,6 +22,7 @@ public class Graphs extends AnchorPane {
 
             graphleft= GraphsController.graphleft;
             graphright=GraphsController.graphright;
+            graphbottom= GraphsController.graphbottom;
 
             this.getChildren().add(Graphs);
 
