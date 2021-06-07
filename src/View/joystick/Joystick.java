@@ -7,16 +7,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.Circle;
-
 import java.io.IOException;
 
 public class Joystick extends AnchorPane {
-   public IntegerProperty sliderJoy1;
-    @FXML public Slider sliderJoy2;
-    @FXML public Canvas joyStick;
-    @FXML public Circle circleJoy;
+    public IntegerProperty sliderJoy1;
+     @FXML public Slider sliderJoy2;
+     @FXML public Canvas joyStick;
+     @FXML public Circle circleJoy;
 
     public Joystick(){
         super();

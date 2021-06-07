@@ -13,13 +13,13 @@
         <Pane layoutY="16.0" prefHeight="88.0" prefWidth="760.0" BorderPane.alignment="CENTER">
             <children>
                 <Slider fx:id="slider" layoutX="14.0" layoutY="60.0" prefHeight="14.0" prefWidth="623.0" />
-                <Button fx:id="Play" layoutX="121.0" layoutY="19.0" mnemonicParsing="false" text="Play" />
-                <Button fx:id="Pause" layoutX="171.0" layoutY="20.0" mnemonicParsing="false" text="Pause" />
-                <Button fx:id="Stop" layoutX="229.0" layoutY="21.0" mnemonicParsing="false" text="Stop" />
-                <Button layoutX="280.0" layoutY="21.0" mnemonicParsing="false" text="&lt;&lt;&lt;" />
-                <Button layoutX="331.0" layoutY="21.0" mnemonicParsing="false" text="&gt;&gt;&gt;" />
-                <Button layoutX="383.0" layoutY="21.0" mnemonicParsing="false" text="-15s" />
-                <Button layoutX="434.0" layoutY="21.0" mnemonicParsing="false" text="+15s" />
+                <Button fx:id="Play" layoutX="120.0" layoutY="21.0" mnemonicParsing="false" text="Play" />
+                <Button fx:id="Pause" layoutX="173.0" layoutY="21.0" mnemonicParsing="false" text="Pause" />
+                <Button fx:id="Stop" layoutX="237.0" layoutY="21.0" mnemonicParsing="false" text="Stop" />
+                <Button layoutX="293.0" layoutY="21.0" mnemonicParsing="false" text="&lt;&lt;&lt;" />
+                <Button layoutX="349.0" layoutY="21.0" mnemonicParsing="false" text="&gt;&gt;&gt;" />
+                <Button layoutX="405.0" layoutY="21.0" mnemonicParsing="false" text="-15s" />
+                <Button layoutX="459.0" layoutY="21.0" mnemonicParsing="false" text="+15s" />
                 <Label layoutX="530.0" layoutY="24.0" prefHeight="19.0" prefWidth="70.0" text="Play Speed">
                     <font>
                         <Font name="System Bold" size="13.0" />
@@ -31,7 +31,7 @@
                         <Font size="13.0" />
                     </font>
                 </Label>
-                <Button fx:id="OpenCSV" layoutX="18.0" layoutY="14.0" mnemonicParsing="false" onAction="#OpenCSVFile" prefHeight="32.0" prefWidth="85.0" text="Open CSV" />
+                <Button fx:id="OpenCSV" layoutX="25.0" layoutY="21.0" mnemonicParsing="false" onAction="#OpenCSVFile" prefHeight="31.0" prefWidth="85.0" text="Open" />
             </children>
         </Pane>
 </AnchorPane>

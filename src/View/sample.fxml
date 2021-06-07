@@ -7,19 +7,36 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.Pane?>
 <?import View.graphs.Graphs?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.shape.Circle?>
+<?import View.panelclocks.PanelClocks?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="468.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.Controller">
     <top>
 
     </top>
     <right>
-        <SplitPane>
+        <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="380.0" prefWidth="239.0">
             <items>
-                <Pane>
-                    <Joystick fx:id="Joystick"></Joystick>
-                </Pane>
-                <Pane>
-
-                </Pane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="185.0" prefWidth="231.0">
+                    <children>
+                        <Pane prefHeight="185.0" prefWidth="210.0">
+                            <children>
+                               <Joystick fx:id="Joystick"></Joystick>
+                            </children>
+                        </Pane>
+                    </children>
+                </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="181.0" prefWidth="148.0" >
+                    <children>
+                        <Pane prefHeight="185.0" prefWidth="210.0">
+                            <children>
+                                <PanelClocks fx:id="PanelClocks"></PanelClocks>
+                            </children>
+                        </Pane>
+                    </children>
+                </AnchorPane>
             </items>
         </SplitPane>
     </right>

@@ -16,7 +16,7 @@ public class Main extends Application {
            FXMLLoader Lo=new FXMLLoader();
            BorderPane root = Lo.load(getClass().getResource("sample.fxml").openStream());
            primaryStage.setTitle("Flight Gear");
-           primaryStage.setScene(new Scene(root, 800, 600));
+           primaryStage.setScene(new Scene(root, 825, 500));
            primaryStage.show();
        } catch (IOException e) {
            e.printStackTrace();
