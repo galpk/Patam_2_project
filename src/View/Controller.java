@@ -2,6 +2,7 @@ package View;
 
 import View.bottom.Bottom;
 import View.csvdialog.CSVDialog;
+import View.graphs.Graphs;
 import View.joystick.Joystick;
 import ViewModel.viewmodel;
 import javafx.fxml.FXML;
@@ -13,6 +14,7 @@ import java.util.Observer;
 import java.util.ResourceBundle;
 
 public class Controller extends Observable {
+    @FXML Graphs Graphs;
     @FXML Joystick Joystick;
     @FXML Bottom Bottom;
     @FXML CSVDialog CSVDialog;

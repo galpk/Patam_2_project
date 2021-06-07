@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.BorderPane?>
-
-
 <?import View.joystick.Joystick?>
 <?import View.bottom.Bottom?>
 <?import View.csvdialog.CSVDialog?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.Pane?>
+<?import View.graphs.Graphs?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="468.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.Controller">
     <top>
 
@@ -23,14 +22,12 @@
                 </Pane>
             </items>
         </SplitPane>
-
-
     </right>
     <left>
         <CSVDialog fx:id="CSVDialog"></CSVDialog>
     </left>
     <center>
-
+        <Graphs fx:id="Graphs"></Graphs>
     </center>
     <bottom>
         <Bottom fx:id="Bottom"></Bottom>
