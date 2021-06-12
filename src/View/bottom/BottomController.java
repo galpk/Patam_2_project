@@ -21,6 +21,30 @@ public class BottomController  implements Initializable {
 
         }
     }
+    public void play(){
+
+    }
+    public void stop(){
+
+    }
+    public void pause(){
+
+    }
+    public void FastRewind(){
+
+    }
+    public void FastForward(){
+
+    }
+    public void next(){
+
+    }
+    public void back(){
+
+    }
+
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
