@@ -1,5 +1,8 @@
 package View.bottom;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.stage.FileChooser;
 import java.io.*;
@@ -7,8 +10,10 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
-public class BottomController  implements Initializable {
-     public static String[] headers = new String[0];
+public class BottomController  {
+
+    public static StringProperty CSVPath = new SimpleStringProperty();
+    @FXML
     public void OpenCSVFile()  {
 
         FileChooser fc=new FileChooser();
@@ -18,17 +23,28 @@ public class BottomController  implements Initializable {
         File chosen=fc.showOpenDialog(null);
         if(chosen!=null) {
             System.out.println(chosen.getName());
+           // CSVPath.setValue("./resources"+ chosen.getName());
 
         }
     }
+    public Runnable onPlay,onPause,onStop;
+
+    @FXML
     public void play(){
-
-    }
-    public void stop(){
-
+        if (onPlay!=null) {
+            onPlay.run();
+        }
     }
     public void pause(){
-
+        if (onPause!=null) {
+            onPause.run();
+        }
+    }
+    @FXML
+    public void stop(){
+        if (onStop!=null) {
+            onStop.run();
+        }
     }
     public void FastRewind(){
 
@@ -43,25 +59,4 @@ public class BottomController  implements Initializable {
 
     }
 
-
-
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        String path = "./resources/anomaly_flight.csv";
-        String line ="";
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(path));
-            while((line =br.readLine())!= null){
-                headers = line.split(",");
-                break;
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        System.out.println(Arrays.deepToString(headers));
-
-    }
 }

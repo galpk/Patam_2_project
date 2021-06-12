@@ -1,23 +1,41 @@
 package View;
 
 import View.bottom.Bottom;
+import View.bottom.BottomController;
 import View.csvdialog.CSVDialog;
 import View.graphs.Graphs;
 import View.joystick.Joystick;
 import View.panelclocks.PanelClocks;
 import ViewModel.viewmodel;
 import javafx.fxml.FXML;
-import javafx.scene.chart.XYChart;
+import javafx.fxml.Initializable;
 
+
+import java.net.URL;
 import java.util.Observable;
+import java.util.ResourceBundle;
 
 
-public class Controller extends Observable {
+public class Controller extends Observable implements Initializable {
     @FXML PanelClocks PanelClocks;
     @FXML Graphs Graphs;
     @FXML Joystick Joystick;
     @FXML Bottom Bottom;
     @FXML CSVDialog CSVDialog;
+
+    public void init(){
+        Bottom.bottomC.onPlay=()-> System.out.println("PLay");
+        Bottom.bottomC.onPause=()-> System.out.println("Pause");
+        Bottom.bottomC.onStop=()-> System.out.println("Stop");
+    }
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        viewmodel viewModel = null;
+//        BottomController.CSVPath.addListener((o,oldvalue, newvalue)->{
+//            CSVDialog.listView.getItems().addAll(viewModel.getHeaders(BottomController.CSVPath.getValue()));
+//        });
+
+    }
 
 
 //    viewmodel viewmodel;

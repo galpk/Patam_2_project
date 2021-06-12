@@ -5,14 +5,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 
 
-public class CSVDialogController extends BottomController {
+public class CSVDialogController {
 
     @FXML
     public static ListView<String> listView;
 
-    public void insert(){
-    listView.getItems().addAll(headers);
-    }
+
 
 
 

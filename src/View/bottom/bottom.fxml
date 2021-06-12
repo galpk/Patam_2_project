@@ -17,7 +17,7 @@
                 <Button layoutX="401.0" layoutY="21.0" mnemonicParsing="false" onAction="#FastForward" text="&gt;&gt;" />
                 <Button layoutX="120.0" layoutY="21.0" mnemonicParsing="false" onAction="#back" text="|&lt;&lt;" />
                 <Button layoutX="173.0" layoutY="21.0" mnemonicParsing="false" onAction="#FastRewind" text="&lt;&lt;" />
-                <Button layoutX="221.0" layoutY="21.0" mnemonicParsing="false" onAction="#play" text="Play" />
+                <Button fx:id="Play" layoutX="221.0" layoutY="21.0" mnemonicParsing="false" onAction="#play" text="Play" />
                 <Button layoutX="451.0" layoutY="21.0" mnemonicParsing="false" onAction="#next" text="&gt;&gt;|" />
                 <Button layoutX="342.0" layoutY="21.0" mnemonicParsing="false" onAction="#stop" text="Stop" />
                 <Label layoutX="530.0" layoutY="24.0" prefHeight="19.0" prefWidth="70.0" text="Play Speed">

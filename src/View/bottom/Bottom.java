@@ -8,19 +8,22 @@ import java.io.IOException;
 
 public class Bottom extends AnchorPane {
 
+    public final BottomController bottomC;
 
     public Bottom(){
         super();
+        FXMLLoader fxlBottom=new FXMLLoader();
+        AnchorPane Bottom = null;
         try{
-            FXMLLoader fxlBottom=new FXMLLoader();
-            AnchorPane Bottom=fxlBottom.load(getClass().getResource("bottom.fxml").openStream());
-
-            BottomController BottomController= fxlBottom.getController();
-
-            this.getChildren().add(Bottom);
-
-        } catch (IOException e) {
+            Bottom=fxlBottom.load(getClass().getResource("bottom.fxml").openStream());
+        }
+        catch (IOException e) {
             e.printStackTrace();
         }
+        if(Bottom!=null){
+            bottomC = fxlBottom.getController();
+            this.getChildren().add(Bottom);
+        }else
+            bottomC = null;
     }
 }
