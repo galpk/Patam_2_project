@@ -8,9 +8,9 @@ import java.io.IOException;
 
 public class Graphs extends AnchorPane {
 
-    @FXML public LineChart graphleft;
-    @FXML public LineChart graphright;
-    @FXML public LineChart graphbottom;
+    public LineChart graphleft;
+    public LineChart graphright;
+    public LineChart graphbottom;
     
     public Graphs(){
         super();

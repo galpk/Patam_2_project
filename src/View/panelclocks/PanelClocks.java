@@ -37,5 +37,12 @@ public class PanelClocks extends AnchorPane {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        Altitude.setText("altimeter: 0.0");
+        Speed.setText("airspeed: 0.0");
+        Direction.setText("direction: 0.0");
+        Pitch.setText("pitch: 0.0");
+        Roll.setText("roll: 0.0");
+        Yaw.setText("yaw: 0.0");
     }
 }

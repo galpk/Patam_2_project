@@ -8,8 +8,9 @@ import java.io.IOException;
 
 public class CSVDialog extends AnchorPane {
 
-    public ListView listView;
+    //public ListView listView;
 
+    public ListView<String> listView;
     public CSVDialog() {
         super();
         try {
