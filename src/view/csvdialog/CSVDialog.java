@@ -1,4 +1,4 @@
-package View.csvdialog;
+package view.csvdialog;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ListView;

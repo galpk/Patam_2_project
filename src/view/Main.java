@@ -1,7 +1,5 @@
-package View;
+package view;
 
-import View.bottom.BottomController;
-import View.csvdialog.CSVDialogController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -9,7 +7,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import  Model.model;
+import model.Model;
 
 
 
@@ -27,7 +25,7 @@ public class Main extends Application {
            scene.getStylesheets().add(getClass().getResource("Application.css").toExternalForm());
             primaryStage.setScene(scene);
            primaryStage.show();
-           model model =new model();
+
 
 
        } catch (IOException e) {
@@ -35,7 +33,6 @@ public class Main extends Application {
        }
 
     }
-
 
     public static void main(String[] args) {
         launch(args);

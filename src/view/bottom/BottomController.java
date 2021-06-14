@@ -1,18 +1,16 @@
-package View.bottom;
+package view.bottom;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import java.io.*;
-import java.net.URL;
-import java.util.Arrays;
-import java.util.ResourceBundle;
 
 public class BottomController  {
 
-    public static StringProperty CSVPath = new SimpleStringProperty();
+    @FXML TextField TimeCounter;
+
     @FXML
     public void OpenCSVFile()  {
 
@@ -27,7 +25,7 @@ public class BottomController  {
 
         }
     }
-    public Runnable onPlay,onPause,onStop;
+    public Runnable onPlay,onPause,onStop,onFastRewind,onFastForward,onNext,onBack;
 
     @FXML
     public void play(){
@@ -40,23 +38,30 @@ public class BottomController  {
             onPause.run();
         }
     }
-    @FXML
     public void stop(){
         if (onStop!=null) {
             onStop.run();
         }
     }
     public void FastRewind(){
-
+        if (onFastRewind!=null) {
+            onFastRewind.run();
+        }
     }
     public void FastForward(){
-
+        if (onFastForward!=null) {
+            onFastForward.run();
+        }
     }
     public void next(){
-
+        if (onNext!=null) {
+            onNext.run();
+        }
     }
     public void back(){
-
+        if (onBack!=null) {
+            onBack.run();
+        }
     }
 
 }

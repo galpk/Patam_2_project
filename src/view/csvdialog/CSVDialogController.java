@@ -1,6 +1,5 @@
-package View.csvdialog;
+package view.csvdialog;
 
-import View.bottom.BottomController;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 

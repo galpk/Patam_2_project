@@ -1,12 +1,12 @@
-package View;
+package view;
 
-import View.bottom.Bottom;
-import View.bottom.BottomController;
-import View.csvdialog.CSVDialog;
-import View.graphs.Graphs;
-import View.joystick.Joystick;
-import View.panelclocks.PanelClocks;
-import ViewModel.viewmodel;
+import javafx.scene.control.TextField;
+import view.bottom.Bottom;
+import view.csvdialog.CSVDialog;
+import view.graphs.Graphs;
+import view.joystick.Joystick;
+import view.panelclocks.PanelClocks;
+import viewmodel.ViewModel;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
@@ -14,6 +14,8 @@ import javafx.fxml.Initializable;
 import java.net.URL;
 import java.util.Observable;
 import java.util.ResourceBundle;
+
+import static view.bottom.Bottom.TimeCounter;
 
 
 public class Controller extends Observable implements Initializable {
@@ -23,14 +25,27 @@ public class Controller extends Observable implements Initializable {
     @FXML Bottom Bottom;
     @FXML CSVDialog CSVDialog;
 
+
+
     public void init(){
-        Bottom.bottomC.onPlay=()-> System.out.println("PLay");
-        Bottom.bottomC.onPause=()-> System.out.println("Pause");
-        Bottom.bottomC.onStop=()-> System.out.println("Stop");
+        ViewModel vm = new ViewModel();
+
+        TimeCounter.textProperty().bind(vm.getProperty("alt").asString());
+
+        //bind other properties too
+
+        Bottom.bottomC.onPlay= vm.play;
+        Bottom.bottomC.onPause=vm.pause;
+        Bottom.bottomC.onStop=vm.stop;
+        Bottom.bottomC.onFastRewind=vm.fastrewind;
+        Bottom.bottomC.onFastForward=vm.fastforward;
+        Bottom.bottomC.onNext=vm.next;
+        Bottom.bottomC.onBack=vm.back;
+
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        viewmodel viewModel = null;
+        ViewModel viewModel = null;
 //        BottomController.CSVPath.addListener((o,oldvalue, newvalue)->{
 //            CSVDialog.listView.getItems().addAll(viewModel.getHeaders(BottomController.CSVPath.getValue()));
 //        });

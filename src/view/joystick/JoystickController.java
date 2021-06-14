@@ -1,4 +1,4 @@
-package View.joystick;
+package view.joystick;
 
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;

@@ -1,6 +1,5 @@
-package View.graphs;
+package view.graphs;
 
-import com.sun.corba.se.impl.orbutil.graph.Graph;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.LineChart;

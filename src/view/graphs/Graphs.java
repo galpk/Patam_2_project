@@ -1,6 +1,5 @@
-package View.graphs;
+package view.graphs;
 
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.chart.LineChart;
 import javafx.scene.layout.AnchorPane;

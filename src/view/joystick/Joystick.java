@@ -1,4 +1,4 @@
-package View.joystick;
+package view.joystick;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;

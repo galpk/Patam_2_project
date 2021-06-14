@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="188.0" prefWidth="219.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.panelclocks.PanelClocksController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="188.0" prefWidth="219.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.panelclocks.PanelClocksController">
 <Pane layoutY="-150.0" prefHeight="390.0" prefWidth="207.0" BorderPane.alignment="CENTER">
     <children>
         <TextField fx:id="Altitude" layoutX="33.0" layoutY="253.0" prefHeight="10.0" prefWidth="37.0" />

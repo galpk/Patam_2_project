@@ -1,4 +1,4 @@
-package View.panelclocks;
+package view.panelclocks;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -13,6 +13,7 @@ public class PanelClocksController {
     @FXML TextField Roll;
     @FXML TextField Pitch;
     @FXML TextField Yaw;
+
 
 
 

@@ -1,4 +1,4 @@
-package View.panelclocks;
+package view.panelclocks;
 
 
 import javafx.fxml.FXML;
@@ -9,12 +9,12 @@ import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 
 public class PanelClocks extends AnchorPane {
-    @FXML public TextField Altitude;
-    @FXML public TextField Speed;
-    @FXML public TextField Direction;
-    @FXML public TextField Roll;
-    @FXML public TextField Pitch;
-    @FXML public TextField Yaw;
+    @FXML public static TextField Altitude;
+    @FXML public static TextField Speed;
+    @FXML public static TextField Direction;
+    @FXML public static TextField Roll;
+    @FXML public static TextField Pitch;
+    @FXML public static TextField Yaw;
 
     public PanelClocks(){
         super();
