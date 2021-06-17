@@ -21,6 +21,9 @@ public class TimeSeries
 	}
 	List<ColData> Dtable = new ArrayList<>();
 
+	public List<ColData> getDtable() {
+		return Dtable;
+	}
 
 	public void addRow(String[] s)
 	{

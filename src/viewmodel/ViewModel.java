@@ -1,5 +1,6 @@
 package viewmodel;
 
+import javafx.application.Platform;
 import javafx.beans.property.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -14,19 +15,31 @@ import java.util.Observable;
 import java.util.Observer;
 
 public class ViewModel extends Observable implements Observer {
-    public IntegerProperty throttle;
-    public IntegerProperty timeStep;
+    public IntegerProperty throttle,timeStep;
+    public StringProperty newpathVM;
     Model model;
     private HashMap<String, DoubleProperty> displayVariables;
-    public final Runnable play,pause,stop,fastrewind,fastforward,next,back;
+    public FloatProperty Alt, Speed , Dire,Roll, Pitch,Yaw;
+    //public final Runnable play,pause,stop,fastrewind,fastforward,next,back;
 
-    public ViewModel(){
+
+
+
+    public ViewModel(Model m){
+        newpathVM = new SimpleStringProperty();
         timeStep = new SimpleIntegerProperty(0);
-        Model m = new Model(timeStep);
+        this.model = m;
+        newpathVM.addListener((o,ov,nv)->this.model.setTm(newpathVM.getValue()));
         throttle=new SimpleIntegerProperty(0);
         displayVariables = new HashMap<String, DoubleProperty>();
 
-        //read from file minute 50 in last class
+        Alt = new SimpleFloatProperty();
+        Speed =new SimpleFloatProperty();
+        Dire =new SimpleFloatProperty();
+        Roll =new SimpleFloatProperty();
+        Pitch =new SimpleFloatProperty();
+        Yaw = new SimpleFloatProperty();
+       //read from file minute 50 in last class
 
         displayVariables.put("alt",new SimpleDoubleProperty());
 
@@ -34,15 +47,18 @@ public class ViewModel extends Observable implements Observer {
 
             displayVariables.get("alt").set(nw.doubleValue());
         });
-        play=()->m.play();
+       /*play=()->m.play();
         pause=()->m.pause();
         stop=()->m.stop();
         fastrewind=()->m.FastRewind();
         fastforward=()->m.FastForward();
         next=()->m.next();
-        back=()->m.back();
+        back=()->m.back();*/
     }
 
+    public void play(){
+        model.run();
+    }
     public DoubleProperty getProperty(String name){
         return displayVariables.get(name);
     }
@@ -51,25 +67,20 @@ public class ViewModel extends Observable implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        this.throttle.setValue(model.getThrottle());
-    }
-
-
-    public String[] getHeaders(String args ){
-        String[] headers = new String[0];
-        String path = args;
-        String line ="";
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(path));
-            while((line =br.readLine())!= null){
-                headers = line.split(",");
-                break;
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(o==this.model) {
+            Platform.runLater(()->{
+                this.Alt.setValue(model.getAlt());
+                this.Dire.setValue(model.getDire());
+                this.Pitch.setValue(model.getPitch());
+                this.Roll.setValue(model.getRoll());
+                this.Speed.setValue(model.getSpeed());
+                this.Yaw.setValue(model.getYaw());
+                this.throttle.setValue(model.getThrottle());
+            });
         }
-        return headers;
     }
+
+
+
+
 }

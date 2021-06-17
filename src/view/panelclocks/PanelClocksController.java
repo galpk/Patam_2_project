@@ -15,9 +15,8 @@ public class PanelClocksController {
     @FXML TextField Yaw;
 
 
+    public PanelClocksController() {
 
 
-
-
-
+    }
 }

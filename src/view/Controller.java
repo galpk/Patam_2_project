@@ -1,7 +1,10 @@
 package view;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.TextField;
 import view.bottom.Bottom;
+import view.bottom.BottomController;
 import view.csvdialog.CSVDialog;
 import view.graphs.Graphs;
 import view.joystick.Joystick;
@@ -18,39 +21,45 @@ import java.util.ResourceBundle;
 import static view.bottom.Bottom.TimeCounter;
 
 
-public class Controller extends Observable implements Initializable {
+public class Controller extends Observable  {
     @FXML PanelClocks PanelClocks;
     @FXML Graphs Graphs;
     @FXML Joystick Joystick;
     @FXML Bottom Bottom;
     @FXML CSVDialog CSVDialog;
+    ViewModel vm;
 
-
-
-    public void init(){
-        ViewModel vm = new ViewModel();
-
+    public void init(ViewModel v){
+        vm = v;
+        vm.newpathVM.bind(Bottom.newpat);
         TimeCounter.textProperty().bind(vm.getProperty("alt").asString());
-
+        EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent e)
+            {
+                vm.play();
+            }
+        };
+        Bottom.Play.setOnAction(event);
+        PanelClocks.Altitude.bind(vm.Alt);
+        PanelClocks.Direction.bind(vm.Dire);
+        PanelClocks.Pitch.bind(vm.Pitch);
+        PanelClocks.Yaw.bind(vm.Yaw);
+        PanelClocks.Roll.bind(vm.Roll);
+        PanelClocks.Speed.bind(vm.Speed);
         //bind other properties too
 
-        Bottom.bottomC.onPlay= vm.play;
+       /* Bottom.bottomC.onPlay= vm.play;
         Bottom.bottomC.onPause=vm.pause;
         Bottom.bottomC.onStop=vm.stop;
         Bottom.bottomC.onFastRewind=vm.fastrewind;
         Bottom.bottomC.onFastForward=vm.fastforward;
         Bottom.bottomC.onNext=vm.next;
-        Bottom.bottomC.onBack=vm.back;
+        Bottom.bottomC.onBack=vm.back;*/
 
     }
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        ViewModel viewModel = null;
-//        BottomController.CSVPath.addListener((o,oldvalue, newvalue)->{
-//            CSVDialog.listView.getItems().addAll(viewModel.getHeaders(BottomController.CSVPath.getValue()));
-//        });
 
-    }
+
+
 
 
 //    viewmodel viewmodel;
