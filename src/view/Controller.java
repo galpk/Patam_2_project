@@ -31,7 +31,7 @@ public class Controller extends Observable  {
 
     public void init(ViewModel v){
         vm = v;
-        vm.newpathVM.bind(Bottom.newpat);
+        vm.newpathVM.bind(CSVDialog.newpat);
         TimeCounter.textProperty().bind(vm.getProperty("alt").asString());
         EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e)

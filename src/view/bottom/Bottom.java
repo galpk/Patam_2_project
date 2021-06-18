@@ -12,20 +12,20 @@ import java.io.IOException;
 
 public class Bottom extends AnchorPane {
     @FXML public static TextField TimeCounter;
-    public StringProperty newpat;
+
     public  BottomController bottomC;
     @FXML public Button Play;
 
     public Bottom(){
         super();
-        newpat = new SimpleStringProperty();
+
         FXMLLoader fxlBottom=new FXMLLoader();
         AnchorPane Bottom = null;
         try{
             Bottom=fxlBottom.load(getClass().getResource("bottom.fxml").openStream());
             BottomController BottomControler = fxlBottom.getController();
             TimeCounter = BottomControler.TimeCounter;
-            newpat.bind(BottomControler.newPath);
+
             this.Play = BottomControler.Play;
         }
         catch (IOException e) {

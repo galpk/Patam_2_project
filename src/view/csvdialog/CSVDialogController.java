@@ -1,35 +1,58 @@
 package view.csvdialog;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.stage.FileChooser;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 
 public class CSVDialogController {
 
     @FXML
     public ListView<String> listView;
+    @FXML
+    private Button openCSV;
+    StringProperty newPath;
 
-    public void getHeaders(){
+    public CSVDialogController() {
+        newPath = new SimpleStringProperty();
+    }
+//    public void getHeaders() {
+//        String[] headers = new String[0];
+//        String line ="";
+//        try {
+//            BufferedReader br = new BufferedReader(new FileReader("resources/reg_flight.csv"));
+//            line =br.readLine();
+//            headers = line.split(",");
+//          listView.getItems().addAll(headers);
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
+    public void OpenCSVFile1() throws IOException {
         String[] headers = new String[0];
         String line ="";
-        try {
-            BufferedReader br = new BufferedReader(new FileReader("resources/reg_flight.csv"));
+        FileChooser fc=new FileChooser();
+        fc.setTitle("Open CSV");
+        fc.setInitialDirectory(new File("resources"));
+        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("CSV Files only","*.csv"));
+        File chosen=fc.showOpenDialog(null);
+        if(chosen!=null) {
+            System.out.println(chosen.getName());
+            newPath.setValue(chosen.getAbsolutePath());
+            BufferedReader br = new BufferedReader(new FileReader(chosen));
             line =br.readLine();
             headers = line.split(",");
-          listView.getItems().addAll(headers);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+            listView.getItems().addAll(headers);
+
         }
 
     }
-
-
-
 }

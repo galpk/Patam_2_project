@@ -36,7 +36,7 @@ public class Main extends Application {
            ViewModel vm1= new ViewModel(m1);
             con.init(vm1);
            primaryStage.setTitle("Flight Gear");
-           Scene scene = new Scene(root, 825, 500);
+           Scene scene = new Scene(root, 900, 580);
            scene.getStylesheets().add(getClass().getResource("Application.css").toExternalForm());
             primaryStage.setScene(scene);
            primaryStage.show();

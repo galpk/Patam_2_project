@@ -1,13 +1,9 @@
 package view.bottom;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
-import view.csvdialog.CSVDialog;
-import view.csvdialog.CSVDialogController;
 
 import java.io.*;
 
@@ -15,25 +11,7 @@ public class BottomController  {
 
     @FXML TextField TimeCounter;
     @FXML public Button Play;
-    StringProperty newPath;
 
-    public BottomController() {
-        newPath = new SimpleStringProperty();
-    }
-
-    public void OpenCSVFile()  {
-
-        FileChooser fc=new FileChooser();
-        fc.setTitle("Open CSV");
-        fc.setInitialDirectory(new File("resources"));
-        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("CSV Files only","*.csv"));
-        File chosen=fc.showOpenDialog(null);
-        if(chosen!=null) {
-            System.out.println(chosen.getName());
-            newPath.setValue(chosen.getAbsolutePath());
-            //CSVDialog.get
-        }
-    }
     //public Runnable onPlay,onPause,onStop,onFastRewind,onFastForward,onNext,onBack;
 /*
     @FXML
