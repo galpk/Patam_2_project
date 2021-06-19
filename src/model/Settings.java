@@ -50,15 +50,15 @@ public class Settings implements Serializable {
         ip = "localhost";
         rate = 100;
         MyMap = new HashMap<>();
-        MyMap.put("aileron",1);
-        MyMap.put("elevator",2);
-        MyMap.put("rudder",3);
-        MyMap.put("throttle",7);
-        MyMap.put("side-slip-deg",21);
-        MyMap.put("airspeed-indicator_indicated-speed-kt",25);
-        MyMap.put("altimeter_indicated-altitude-ft",26);
-        MyMap.put("attitude-indicator_indicated-roll-deg",29);
-        MyMap.put("attitude-indicator_internal-pitch-deg",30);
-        MyMap.put("indicated-heading-deg",37);
+        MyMap.put("aileron",0);
+        MyMap.put("elevator",1);
+        MyMap.put("rudder",2);
+        MyMap.put("throttle",6);
+        MyMap.put("side-slip-deg",20);
+        MyMap.put("airspeed-indicator_indicated-speed-kt",24);
+        MyMap.put("altimeter_indicated-altitude-ft",25);
+        MyMap.put("attitude-indicator_indicated-roll-deg",28);
+        MyMap.put("attitude-indicator_internal-pitch-deg",29);
+        MyMap.put("indicated-heading-deg",36);
     }
 }

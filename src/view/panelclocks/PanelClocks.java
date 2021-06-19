@@ -3,6 +3,7 @@ package view.panelclocks;
 
 import javafx.beans.property.FloatProperty;
 import javafx.beans.property.SimpleFloatProperty;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
@@ -11,7 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 
 public class PanelClocks extends AnchorPane {
-     public FloatProperty  Altitude, Speed, Direction, Roll, Pitch, Yaw;
+     public FloatProperty Altitude,  Speed, Direction, Roll, Pitch, Yaw;
 
     public PanelClocks(){
         super();
@@ -27,6 +28,7 @@ public class PanelClocks extends AnchorPane {
             Roll =new SimpleFloatProperty();
             Pitch =new SimpleFloatProperty();
             Yaw = new SimpleFloatProperty();
+
 
             PanelClocksController.Altitude.textProperty().bind(Altitude.asString());
             PanelClocksController.Speed.textProperty().bind(Speed.asString());

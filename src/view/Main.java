@@ -12,6 +12,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import model.Model;
 import model.Settings;
+import view.joystick.JoystickController;
 import viewmodel.ViewModel;
 
 
@@ -34,11 +35,11 @@ public class Main extends Application {
 
            Model m1 = new Model();
            ViewModel vm1= new ViewModel(m1);
-            con.init(vm1);
+           con.init(vm1);
            primaryStage.setTitle("Flight Gear");
            Scene scene = new Scene(root, 900, 580);
            scene.getStylesheets().add(getClass().getResource("Application.css").toExternalForm());
-            primaryStage.setScene(scene);
+           primaryStage.setScene(scene);
            primaryStage.show();
 
 

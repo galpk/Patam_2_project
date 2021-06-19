@@ -9,16 +9,16 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="188.0" prefWidth="219.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.panelclocks.PanelClocksController">
 <Pane layoutY="-150.0" prefHeight="390.0" prefWidth="207.0" BorderPane.alignment="CENTER">
     <children>
-        <TextField fx:id="Roll" layoutX="33.0" layoutY="253.0" prefHeight="10.0" prefWidth="37.0" />
-        <TextField fx:id="Pitch" layoutX="96.0" layoutY="253.0" prefHeight="25.0" prefWidth="37.0" />
-        <TextField fx:id="Speed" layoutX="96.0" layoutY="203.0" prefHeight="25.0" prefWidth="37.0" />
-        <TextField fx:id="Direction" layoutX="157.0" layoutY="203.0" prefHeight="25.0" prefWidth="38.0" />
-        <TextField fx:id="Yaw" layoutX="156.0" layoutY="253.0" prefHeight="25.0" prefWidth="40.0" />
-        <TextField fx:id="Altitude" layoutX="33.0" layoutY="203.0" prefHeight="25.0" prefWidth="37.0" />
-        <Label layoutX="30.0" layoutY="186.0" text="Altitude" />
-        <Label layoutX="97.0" layoutY="186.0" text="Speed" />
-        <Label layoutX="151.0" layoutY="186.0" text="Direction" />
-        <Label layoutX="41.0" layoutY="236.0" text="Roll" />
+        <Label fx:id="Roll" layoutX="33.0" layoutY="257.0" prefHeight="10.0" prefWidth="37.0" />
+        <Label fx:id="Pitch" layoutX="96.0" layoutY="257.0" prefHeight="31.0" prefWidth="41.0" />
+        <Label fx:id="Speed" layoutX="96.0" layoutY="203.0" prefHeight="31.0" prefWidth="41.0" />
+        <Label fx:id="Direction" layoutX="157.0" layoutY="203.0" prefHeight="25.0" prefWidth="38.0" />
+        <Label fx:id="Yaw" layoutX="156.0" layoutY="257.0" prefHeight="25.0" prefWidth="40.0" />
+        <Label fx:id="Altitude" layoutX="33.0" layoutY="203.0" prefHeight="25.0" prefWidth="37.0" />
+        <Label layoutX="25.0" layoutY="182.0" text="Altitude" />
+        <Label layoutX="94.0" layoutY="182.0" text="Speed" />
+        <Label layoutX="149.0" layoutY="182.0" text="Direction" />
+        <Label layoutX="37.0" layoutY="236.0" text="Roll" />
         <Label layoutX="102.0" layoutY="236.0" text="Pitch" />
         <Label layoutX="165.0" layoutY="236.0" text="Yaw" />
     </children>

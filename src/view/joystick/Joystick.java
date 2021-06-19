@@ -11,10 +11,9 @@ import javafx.scene.shape.Circle;
 import java.io.IOException;
 
 public class Joystick extends AnchorPane {
-    public IntegerProperty sliderJoy1;
-     @FXML public Slider sliderJoy2;
+    public IntegerProperty sliderJoyY;
+     @FXML public Slider sliderJoyX;
      @FXML public Canvas joyStick;
-     @FXML public Circle circleJoy;
 
     public Joystick(){
         super();
@@ -23,11 +22,12 @@ public class Joystick extends AnchorPane {
             AnchorPane Joystick=fxlJoystick.load(getClass().getResource("joystick.fxml").openStream());
 
             JoystickController JoystickController= fxlJoystick.getController();
+            JoystickController.paint();
 
-            sliderJoy1=new SimpleIntegerProperty();
-            sliderJoy2=JoystickController.sliderJoy2;
+            sliderJoyY=new SimpleIntegerProperty();
+            sliderJoyX=JoystickController.sliderJoyX;
             joyStick=JoystickController.joyStick;
-            circleJoy=JoystickController.circleJoy;
+
 
             this.getChildren().add(Joystick);
 

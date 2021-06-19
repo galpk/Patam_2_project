@@ -2,14 +2,7 @@ package viewmodel;
 
 import javafx.application.Platform;
 import javafx.beans.property.*;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import model.Model;
-
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
@@ -29,6 +22,7 @@ public class ViewModel extends Observable implements Observer {
         newpathVM = new SimpleStringProperty();
         timeStep = new SimpleIntegerProperty(0);
         this.model = m;
+        m.addObserver(this);
         newpathVM.addListener((o,ov,nv)->this.model.setTm(newpathVM.getValue()));
         throttle=new SimpleIntegerProperty(0);
         displayVariables = new HashMap<String, DoubleProperty>();
@@ -69,13 +63,26 @@ public class ViewModel extends Observable implements Observer {
     public void update(Observable o, Object arg) {
         if(o==this.model) {
             Platform.runLater(()->{
-                this.Alt.setValue(model.getAlt());
-                this.Dire.setValue(model.getDire());
-                this.Pitch.setValue(model.getPitch());
-                this.Roll.setValue(model.getRoll());
-                this.Speed.setValue(model.getSpeed());
-                this.Yaw.setValue(model.getYaw());
-                this.throttle.setValue(model.getThrottle());
+                if(arg!=null&& arg.equals("Alt")) {
+                    this.Alt.setValue(model.getAlt());
+                }
+                if(arg!=null&& arg.equals("Dire")) {
+                    this.Dire.setValue(model.getDire());
+                }
+                if(arg!=null&& arg.equals("Pitch")) {
+                    this.Pitch.setValue(model.getPitch());
+                }
+                if(arg!=null&& arg.equals("Roll")) {
+                    this.Roll.setValue(model.getRoll());
+                }
+                if(arg!=null&& arg.equals("Speed")) {
+                    this.Speed.setValue(model.getSpeed());
+                }
+                if(arg!=null&& arg.equals("Yaw")) {
+                    this.Yaw.setValue(model.getYaw());
+                }
+
+               // this.throttle.setValue(model.getThrottle());
             });
         }
     }

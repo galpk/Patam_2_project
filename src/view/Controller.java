@@ -46,6 +46,7 @@ public class Controller extends Observable  {
         PanelClocks.Yaw.bind(vm.Yaw);
         PanelClocks.Roll.bind(vm.Roll);
         PanelClocks.Speed.bind(vm.Speed);
+
         //bind other properties too
 
        /* Bottom.bottomC.onPlay= vm.play;
