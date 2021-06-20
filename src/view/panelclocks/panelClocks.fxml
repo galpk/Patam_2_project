@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="188.0" prefWidth="270.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.panelclocks.PanelClocksController">
+<Pane layoutX="-1.0" prefHeight="188.0" prefWidth="270.0" BorderPane.alignment="CENTER">
+    <children>
+        <TextField fx:id="Roll" layoutX="16.0" layoutY="135.0" prefHeight="10.0" prefWidth="60.0" />
+        <TextField fx:id="Pitch" layoutX="101.0" layoutY="135.0" prefHeight="31.0" prefWidth="60.0" />
+        <TextField fx:id="Speed" layoutX="100.0" layoutY="50.0" prefHeight="25.0" prefWidth="60.0" />
+        <TextField fx:id="Direction" layoutX="187.0" layoutY="50.0" prefHeight="25.0" prefWidth="60.0" />
+        <TextField fx:id="Yaw" layoutX="184.0" layoutY="135.0" prefHeight="25.0" prefWidth="60.0" />
+        <TextField fx:id="Altitude" layoutX="17.0" layoutY="50.0" prefHeight="25.0" prefWidth="60.0" />
+        <Label layoutX="23.0" layoutY="25.0" prefHeight="21.0" prefWidth="60.0" text="Altitude" />
+        <Label layoutX="109.0" layoutY="25.0" text="Speed" />
+        <Label layoutX="180.0" layoutY="25.0" text="Direction" />
+        <Label layoutX="33.0" layoutY="105.0" text="Roll" />
+        <Label layoutX="113.0" layoutY="105.0" text="Pitch" />
+        <Label layoutX="200.0" layoutY="109.0" text="Yaw" />
+    </children>
+</Pane>
+</AnchorPane>
