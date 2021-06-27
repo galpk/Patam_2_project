@@ -32,7 +32,6 @@ public class Main extends Application {
            xmlen.writeObject(setting);
            xmlen.flush();
            xmlen.close();
-
            Model m1 = new Model();
            ViewModel vm1= new ViewModel(m1);
            con.init(vm1);
@@ -41,13 +40,11 @@ public class Main extends Application {
            scene.getStylesheets().add(getClass().getResource("Application.css").toExternalForm());
            primaryStage.setScene(scene);
            primaryStage.show();
-
-
+          // con.configurePlayer();
 
        } catch (IOException e) {
            e.printStackTrace();
        }
-
     }
 
     public static void main(String[] args) {

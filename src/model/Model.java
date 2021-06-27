@@ -3,6 +3,8 @@ package model;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.StringProperty;
 import test.TimeSeries;
+import view.bottom.Bottom;
+
 import java.beans.XMLDecoder;
 import java.io.*;
 import java.net.Socket;
@@ -12,6 +14,7 @@ import java.util.TimerTask;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.ScheduledFuture;
 
 
 public class Model extends Observable {
@@ -22,10 +25,12 @@ public class Model extends Observable {
     public StringProperty newpathM;
     private TimeSeries tm;
     Settings settingM;
-    Runnable r;
+    ScheduledFuture<?> scheduledFuture = null;
     Thread tr , tr2;
     float Alt, Speed,Dire,Roll,Pitch,Yaw;
-    float rudder, throttle, joySt;
+    float rudder, throttle,aileron , elevator;
+
+
 
     public float getRudder() {
         return rudder;
@@ -43,12 +48,20 @@ public class Model extends Observable {
         this.throttle = throttle;
     }
 
-    public float getJoySt() {
-        return joySt;
+    public float getAileron() {
+        return aileron;
     }
 
-    public void setJoySt(float joySt) {
-        this.joySt = joySt;
+    public void setAileron(float aileron) {
+        this.aileron = aileron;
+    }
+
+    public float getElevator() {
+        return elevator;
+    }
+
+    public void setElevator(float elevator) {
+        this.elevator = elevator;
     }
 
     public void setAlt(float alt) {
@@ -89,7 +102,9 @@ public class Model extends Observable {
     }
 
 
-
+    public void changeTimeStamp(int value) {
+        view.Controller.injectTimeStamp(value);
+    }
     public float getAlt() {
         return Alt;
     }
@@ -113,6 +128,7 @@ public class Model extends Observable {
     public float getYaw() {
         return Yaw;
     }
+
 
 
 
@@ -148,9 +164,7 @@ public class Model extends Observable {
         this.tm = new TimeSeries(path);
     }
 
-    public Model(IntegerProperty timeStep){
-        this.timeStep = timeStep;
-    }
+
 
     public void run(){
         tr =new Thread(()->this.play());
@@ -170,7 +184,7 @@ public class Model extends Observable {
                     int j = 0;
                     for (j = 0; j < tm.getDtable().size(); j++) {
                         line = line + tm.getDtable().get(j).Vlist.get(i).toString() + ",";
-
+                        //System.out.println(aileron+ " ,1 " + elevator+ " ,1 " + rudder+ " ,1 " +throttle);
                     }
                     this.setAlt(tm.getDtable().get(settingM.MyMap.get("altimeter_indicated-altitude-ft")).Vlist.get(i));
                     this.setSpeed(tm.getDtable().get(settingM.MyMap.get("airspeed-indicator_indicated-speed-kt")).Vlist.get(i));
@@ -178,6 +192,12 @@ public class Model extends Observable {
                     this.setRoll(tm.getDtable().get(settingM.MyMap.get("attitude-indicator_indicated-roll-deg")).Vlist.get(i));
                     this.setPitch(tm.getDtable().get(settingM.MyMap.get("attitude-indicator_internal-pitch-deg")).Vlist.get(i));
                     this.setYaw(tm.getDtable().get(settingM.MyMap.get("side-slip-deg")).Vlist.get(i));
+                    this.setThrottle(tm.getDtable().get(settingM.MyMap.get("throttle")).Vlist.get(i));
+                    this.setRudder(tm.getDtable().get(settingM.MyMap.get("rudder")).Vlist.get(i));
+                    this.setAileron(tm.getDtable().get(settingM.MyMap.get("aileron")).Vlist.get(i));
+                    this.setElevator(tm.getDtable().get(settingM.MyMap.get("elevator")).Vlist.get(i));
+                    this.setChanged();
+                    this.notifyObservers();
 
                     out.println(line);
                     out.flush();
@@ -191,24 +211,24 @@ public class Model extends Observable {
     }
 
     public void stop(){
-        tr2 = new Thread(()->this.stop());
-        tr2.start();
+        if (scheduledFuture != null) {
+            scheduledFuture.cancel(false);
+        }
+
     }
 
     public void pause(){
-
-        if (t!= null){
-            t.cancel();
-            t=null;
+        if (scheduledFuture != null) {
+            scheduledFuture.cancel(false);
         }
     }
 
     public void FastRewind(){
-        timeStep.set(timeStep.getValue()-15);
+       // timeStep.set(timeStep.getValue()-15);
 
     }
     public void FastForward(){
-        timeStep.set(timeStep.getValue()+15);
+        //timeStep.set(timeStep.getValue()+15);
 
     }
     public void next(){
@@ -219,8 +239,8 @@ public class Model extends Observable {
 
 
     }
+    public void PlaySpeed(){
 
 
-
-
+    }
 }

@@ -26,7 +26,6 @@ public class CSVDialog extends AnchorPane {
             CSVDialogController CSVDialogController = fxlCSVDialog.getController();
             newpat.bind(CSVDialogController.newPath);
             listView = CSVDialogController.listView;
-//            CSVDialogController.getHeaders();
             this.getChildren().add(CSVDialog);
 
         } catch (IOException e) {

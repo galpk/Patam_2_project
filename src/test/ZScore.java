@@ -1,6 +1,9 @@
 package test;
 
 
+import javafx.scene.canvas.Canvas;
+import javafx.scene.paint.Color;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +19,7 @@ public class ZScore implements TimeSeriesAnomalyDetector
             this.Colname = name;
             this.MaxNum = num;
         }
+
     }
     private List<MaxCol> ThresholdList ;
     @Override
@@ -79,5 +83,7 @@ public class ZScore implements TimeSeriesAnomalyDetector
         }
         return  DetectListReport;
     }
+
+
 }
 

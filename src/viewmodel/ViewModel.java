@@ -3,7 +3,6 @@ package viewmodel;
 import javafx.application.Platform;
 import javafx.beans.property.*;
 import model.Model;
-import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -11,13 +10,8 @@ public class ViewModel extends Observable implements Observer {
     public IntegerProperty timeStep;
     public StringProperty newpathVM , clock;
     Model model;
-    private HashMap<String, DoubleProperty> displayVariables;
     public FloatProperty Alt, Speed , Dire,Roll, Pitch,Yaw;
-    public FloatProperty Rudder , throttle, joyStick;
-    //public final Runnable play,pause,stop,fastrewind,fastforward,next,back;
-
-
-
+    public DoubleProperty Rudder , throttle,aileron , elevator;
 
     public ViewModel(Model m){
         newpathVM = new SimpleStringProperty();
@@ -26,46 +20,48 @@ public class ViewModel extends Observable implements Observer {
         m.addObserver(this);
         newpathVM.addListener((o,ov,nv)->this.model.setTm(newpathVM.getValue()));
 
-        displayVariables = new HashMap<String, DoubleProperty>();
-
         Alt = new SimpleFloatProperty();
         Speed =new SimpleFloatProperty();
         Dire =new SimpleFloatProperty();
         Roll =new SimpleFloatProperty();
         Pitch =new SimpleFloatProperty();
         Yaw = new SimpleFloatProperty();
-        Rudder= new SimpleFloatProperty();
-        throttle= new SimpleFloatProperty();
-        joyStick= new SimpleFloatProperty();
-       //read from file minute 50 in last class
-
-        displayVariables.put("alt",new SimpleDoubleProperty());
+        Rudder= new SimpleDoubleProperty();
+        throttle= new SimpleDoubleProperty();
+        aileron= new SimpleDoubleProperty();
+        elevator = new SimpleDoubleProperty();
+        //read from file minute 50 in last class
 
         timeStep.addListener((ob,old,nw)->{
 
             Platform.runLater(()->clock.set(model.clock));
         });
         clock = new SimpleStringProperty();
-       /*play=()->m.play();
-        pause=()->m.pause();
-        stop=()->m.stop();
-        fastrewind=()->m.FastRewind();
-        fastforward=()->m.FastForward();
-        next=()->m.next();
-        back=()->m.back();*/
-    }
 
+    }
     public void play(){
         model.run();
     }
     public void stop(){
         model.stop();
     }
-//    public void pause(){
-//        model.pause();
-//    }
-    public DoubleProperty getProperty(String name){
-        return displayVariables.get(name);
+    public void pause(){
+        model.pause();
+    }
+    public void FastRewind(){
+        model.FastRewind();
+    }
+    public void FastForward(){
+        model.FastForward();
+    }
+    public void next(){
+        model.next();
+    }
+    public void back(){
+        model.back();
+    }
+    public void PlaySpeed(){
+        model.PlaySpeed();
     }
 
 
@@ -92,13 +88,12 @@ public class ViewModel extends Observable implements Observer {
                 if(arg!=null&& arg.equals("Yaw")) {
                     this.Yaw.setValue(model.getYaw());
                 }
-
-               // this.throttle.setValue(model.getThrottle());
+                this.Rudder.setValue(model.getRudder());
+                this.throttle.setValue(model.getThrottle());
+                this.aileron.setValue(model.getAileron());
+                this.elevator.setValue(model.getElevator());
             });
         }
     }
-
-
-
 
 }

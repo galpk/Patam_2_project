@@ -1,80 +1,94 @@
 package view;
 
-import javafx.beans.property.FloatProperty;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.control.TextField;
 import view.bottom.Bottom;
-import view.bottom.BottomController;
 import view.csvdialog.CSVDialog;
 import view.graphs.Graphs;
 import view.joystick.Joystick;
-import view.joystick.JoystickController;
 import view.panelclocks.PanelClocks;
 import viewmodel.ViewModel;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-
-
-import java.net.URL;
 import java.util.Observable;
-import java.util.ResourceBundle;
 
-import static view.bottom.Bottom.TimeCounter;
-
-
-public class Controller extends Observable  {
+public class Controller extends Observable
+{
     @FXML PanelClocks PanelClocks;
     @FXML Graphs Graphs;
     @FXML Joystick Joystick;
     @FXML Bottom Bottom;
     @FXML CSVDialog CSVDialog;
     ViewModel vm;
+   /* public void configurePlayer(){
+        Bottom.Play.setOnMouseClicked(mouseEvent ->{
+            vm.play();
+            Bottom.BottomSlider.setDisable(true);
+        });
+        Bottom.Pause.setOnMouseClicked(mouseEvent ->{
+            vm.pause();
+            Bottom.BottomSlider.setDisable(false);
+        });
+        Bottom.Stop.setOnMouseClicked(mouseEvent ->{
+            vm.stop();
+            Bottom.BottomSlider.setDisable(false);
+        });
+//        Bottom.BottomSlider.valueChangingProperty().addListener((obs, oldVal, newVal) -> {
+////            if (!newVal) {
+////               vm.changeTimeStamp((int)  Bottom.BottomSlider.getValue());
+////            }
+//        });
+    }*/
 
-    public void init(ViewModel v){
+    public static void injectTimeStamp(int value) {
+//        setTimeStamp(value);
+//        setClock(value / ratio);
+    }
+    public void init(ViewModel v)
+    {
         vm = v;
         vm.newpathVM.bind(CSVDialog.newpat);
-        Bottom.TimeCounter.textProperty().bind(vm.clock);
-        EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
+        EventHandler<ActionEvent> event = new EventHandler<ActionEvent>()
+        {
             public void handle(ActionEvent e)
             {
                 vm.play();
                 vm.stop();
-//                vm.pause();
+                vm.pause();
+                vm.FastRewind();
+                vm.FastForward();
+                vm.back();
+                vm.next();
+                vm.PlaySpeed();
+
+
             }
         };
         Bottom.Play.setOnAction(event);
         Bottom.Stop.setOnAction(event);
+        Bottom.Pause.setOnAction(event);
+        Bottom.FastRewind.setOnAction(event);
+        Bottom.FastForward.setOnAction(event);
+        Bottom.next.setOnAction(event);
+        Bottom.back.setOnAction(event);
+        Bottom.PlaySpeed.setOnAction(event);
+
         PanelClocks.Altitude.bind(vm.Alt);
         PanelClocks.Direction.bind(vm.Dire);
         PanelClocks.Pitch.bind(vm.Pitch);
         PanelClocks.Yaw.bind(vm.Yaw);
         PanelClocks.Roll.bind(vm.Roll);
         PanelClocks.Speed.bind(vm.Speed);
+
         Joystick.throttle.bind(vm.throttle);
         Joystick.Rudder.bind(vm.Rudder);
-        Joystick.joyStick.bind(vm.joyStick);
+        Joystick.aileron.bind(vm.aileron);
+        Joystick.elevator.bind(vm.elevator);
         //bind other properties too
-
-       /* Bottom.bottomC.onPlay= vm.play;
-        Bottom.bottomC.onPause=vm.pause;
-        Bottom.bottomC.onStop=vm.stop;
-        Bottom.bottomC.onFastRewind=vm.fastrewind;
-        Bottom.bottomC.onFastForward=vm.fastforward;
-        Bottom.bottomC.onNext=vm.next;
-        Bottom.bottomC.onBack=vm.back;*/
 
     }
 
 
 
-
-
-//
-//    public void init(){
-//        Joystick.sliderJoy1.bind(viewmodel.throttle);
-//
-//
 //        XYChart.Series series1 = new XYChart.Series();
 //        Graphs.graphleft.getData().add(series1);
 //        Graphs.graphleft.setCreateSymbols(false);

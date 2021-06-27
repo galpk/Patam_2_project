@@ -1,16 +1,20 @@
 package view.graphs;
 
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
+import java.util.Set;
 
 public class Graphs extends AnchorPane {
 
     public LineChart graphleft;
     public LineChart graphright;
     public LineChart graphbottom;
-    
+    public XYChart.Series series;
     public Graphs(){
         super();
         try{
@@ -19,9 +23,15 @@ public class Graphs extends AnchorPane {
 
             GraphsController GraphsController= fxlGraphs.getController();
 
-            graphleft= GraphsController.graphleft;
-            graphright=GraphsController.graphright;
-            graphbottom= GraphsController.graphbottom;
+            this.graphleft= GraphsController.graphleft;
+            this.graphright=GraphsController.graphright;
+            this.graphbottom= GraphsController.graphbottom;
+            series = new XYChart.Series();
+
+            graphleft.getData().add(series);
+            GraphsController.setLine(graphleft,series);
+            GraphsController.setLine(graphright,series);
+            GraphsController.setLine(graphbottom,series);
 
             this.getChildren().add(Graphs);
 
@@ -29,4 +39,5 @@ public class Graphs extends AnchorPane {
             e.printStackTrace();
         }
     }
+
 }

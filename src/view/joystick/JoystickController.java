@@ -1,22 +1,53 @@
 package view.joystick;
 
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Slider;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Circle;
 
 import java.util.Observable;
-
-
 
 public class JoystickController extends Observable {
     @FXML Slider throttle;
     @FXML Slider Rudder;
-    @FXML Canvas joyStick;
-    boolean mouseClicked;
-    double jx,jy;
-    double mx , my;
+    @FXML Circle smallCircle;
+    @FXML Circle bigCircle;
+    double jx, jy;
+    double mx, my;
+    public DoubleProperty aileron, elevator;
+
+    public JoystickController() {
+        aileron = new SimpleDoubleProperty();
+        elevator = new SimpleDoubleProperty();
+        jx = 0;
+        jy = 0;
+    }
+
+    public void paint() {
+        mx = smallCircle.getRadius() / 2;
+        my = smallCircle.getRadius() / 2;
+        smallCircle.setCenterX(bigCircle.getCenterX() + (elevator.getValue()) * smallCircle.getRadius()*4);
+        smallCircle.setCenterY(bigCircle.getCenterY() + (aileron.getValue()) * smallCircle.getRadius()*4);
+    }
+
+}
+//        GraphicsContext gc = joyStick.getGraphicsContext2D();
+//        mx = joyStick.getWidth() / 2;
+//        my = joyStick.getHeight() / 2;
+//        gc.clearRect(0, 0, joyStick.getWidth(), joyStick.getHeight());
+//        gc.strokeOval(jx - 50, jy - 50, 100, 100);
+//        aileron = (jx - mx) / mx;
+//        elevator = (jy - my) / my;
+//        setChanged();
+//        notifyObservers();
+//        System.out.println(aileron + "," + elevator);
+
+
+    /* boolean mouseClicked;
+
 
     double aileron , elevator;
 
@@ -82,7 +113,8 @@ public class JoystickController extends Observable {
             paint();
         }
     }
+*/
 
 
-}
+
 

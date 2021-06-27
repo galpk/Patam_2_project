@@ -21,21 +21,7 @@ public class CSVDialogController {
     public CSVDialogController() {
         newPath = new SimpleStringProperty();
     }
-//    public void getHeaders() {
-//        String[] headers = new String[0];
-//        String line ="";
-//        try {
-//            BufferedReader br = new BufferedReader(new FileReader("resources/reg_flight.csv"));
-//            line =br.readLine();
-//            headers = line.split(",");
-//          listView.getItems().addAll(headers);
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//    }
+
     public void OpenCSVFile1() throws IOException {
         String[] headers = new String[0];
         String line ="";
