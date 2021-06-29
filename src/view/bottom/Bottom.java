@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 
 import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -16,9 +17,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 
 public class Bottom extends AnchorPane {
-
-
-    public  BottomController bottomC;
+    @FXML public static TextField TimeCounter;
     @FXML public Button Play;
     @FXML public Button Stop;
     @FXML public Button Pause;
@@ -28,7 +27,7 @@ public class Bottom extends AnchorPane {
     @FXML public Button back;
     @FXML public MenuButton PlaySpeed;
     @FXML public Slider BottomSlider;
-
+    public BottomController BottomControler;
     public Bottom(){
         super();
 
@@ -36,8 +35,6 @@ public class Bottom extends AnchorPane {
         AnchorPane Bottom = null;
         try{
             Bottom=fxlBottom.load(getClass().getResource("bottom.fxml").openStream());
-            BottomController BottomControler = fxlBottom.getController();
-
 
             this.Play = BottomControler.Play;
             this.Stop = BottomControler.Stop;
@@ -54,10 +51,10 @@ public class Bottom extends AnchorPane {
         }
 
         if(Bottom!=null){
-            bottomC = fxlBottom.getController();
+            BottomControler = fxlBottom.getController();
             this.getChildren().add(Bottom);
         }else
-            bottomC = null;
+            BottomControler = null;
     }
 
 }

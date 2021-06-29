@@ -20,7 +20,7 @@
                 <Button fx:id="Play" layoutX="265.0" layoutY="21.0" mnemonicParsing="false" text="Play" />
                 <Button fx:id="next" layoutX="480.0" layoutY="21.0" mnemonicParsing="false" text="&gt;&gt;|" />
                 <Button fx:id="Stop" layoutX="380.0" layoutY="21.0" mnemonicParsing="false" text="Stop" />
-         <TextField layoutX="680.0" layoutY="22.0" prefHeight="31.0" prefWidth="51.0" />
+         <TextField fx:id="TimeCounter" layoutX="680.0" layoutY="22.0" prefHeight="31.0" prefWidth="51.0" />
          <MenuButton fx:id="PlaySpeed" layoutX="539.0" layoutY="22.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="122.0" text="Play Speed">
            <items>
              <MenuItem mnemonicParsing="false" text="1.0" />

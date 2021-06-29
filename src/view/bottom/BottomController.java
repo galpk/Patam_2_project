@@ -21,7 +21,7 @@ public class BottomController  {
     @FXML public Button back;
     @FXML public MenuButton PlaySpeed;
     @FXML public Slider BottomSlider;
-
+    @FXML TextField TimeCounter;
 
 
 
