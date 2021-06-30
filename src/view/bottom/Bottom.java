@@ -28,14 +28,14 @@ public class Bottom extends AnchorPane {
     @FXML public MenuButton PlaySpeed;
     @FXML public Slider BottomSlider;
     public BottomController BottomControler;
-    public Bottom(){
+    public Bottom() {
         super();
 
-        FXMLLoader fxlBottom=new FXMLLoader();
+        FXMLLoader fxlBottom = new FXMLLoader();
         AnchorPane Bottom = null;
-        try{
-            Bottom=fxlBottom.load(getClass().getResource("bottom.fxml").openStream());
-
+        try {
+            Bottom = fxlBottom.load(getClass().getResource("bottom.fxml").openStream());
+            BottomControler = fxlBottom.getController();
             this.Play = BottomControler.Play;
             this.Stop = BottomControler.Stop;
             this.Pause = BottomControler.Pause;
@@ -45,16 +45,12 @@ public class Bottom extends AnchorPane {
             this.next = BottomControler.next;
             this.PlaySpeed = BottomControler.PlaySpeed;
 
-        }
-        catch (IOException e) {
+            this.getChildren().add(Bottom);
+
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
-        if(Bottom!=null){
-            BottomControler = fxlBottom.getController();
-            this.getChildren().add(Bottom);
-        }else
-            BottomControler = null;
     }
 
 }
